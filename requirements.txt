@@ -1,0 +1,7 @@
+python==3.8.10
+matplotlib
+numpy==1.19.3
+opencv-python==4.5.3.56
+pipenv-to-requirements
+pyqt5==5.14.1
+scipy==1.6.2 
