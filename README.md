@@ -16,7 +16,8 @@
     1. [Phone camera](#Phone)
     2. [RPi camera](#RPi)
 
-<br>
+
+
 ### Problem <a name="problem"></a>
 
 The task was to find some way to set paralellism of Plunger foils. Approach was chosen with using optics. 
@@ -80,7 +81,9 @@ At the moment things are so if lens is focused on the nearest point of foils, th
 
 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./pics_for_report/blured.png" height="300", width="350" alt="drawing" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="./pics_for_report/blured.png" height="300", width="350" alt="drawing" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="./pics_for_report/sharpped.png" height="300", width="350" alt="drawing" />
 
 
