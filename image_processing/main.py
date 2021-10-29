@@ -5,7 +5,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 from filemanager import filesmanager, filemanager
 from img_an_tm import cleaning_and_copying
-from img_procesing import calcs
+from img_processing import calcs
 
 
 # cleaning space
@@ -29,7 +29,7 @@ class MainWindow(QMainWindow):
 
     def initUI(self):
 
-        imgs_for_procesing = []
+        imgs_for_processing = []
         tmplt_img = ''
 
 	# calling filemanager from "filemanager.py" to select paths for template (first one) and source images (second one)
@@ -38,13 +38,13 @@ class MainWindow(QMainWindow):
             tmplt_img = filemanager()
 
         def fsm():
-            global imgs_for_procesing
-            imgs_for_procesing = filesmanager()
+            global imgs_for_processing
+            imgs_for_processing = filesmanager()
 
 
 	# this is the function that does all the calculations
         def calculation():
-            global imgs_for_procesing
+            global imgs_for_processing
             global tmplt_img
             global dir_c
             try:
@@ -54,11 +54,11 @@ class MainWindow(QMainWindow):
             os.chdir(dir_c)
             
             # cleaning workspace and copy selected images
-            cleaning_and_copying(*imgs_for_procesing)
+            cleaning_and_copying(*imgs_for_processing)
             shutil.copy2(tmplt_img, os.getcwd() + '/template.png')
             
-            # function from "img_procesing.py" (description almost is there)
-            calcs(gr, *imgs_for_procesing)
+            # function from "img_processing.py" (description almost is there)
+            calcs(gr, *imgs_for_processing)
             
             # filling box with results by text from "results.txt"
             res_qn.setText(open('results.txt').read())
@@ -88,7 +88,7 @@ class MainWindow(QMainWindow):
 
 
 ############################DESIGN GUI#####################################
-        self.setWindowTitle('Image procesing')
+        self.setWindowTitle('Image processing')
         self.resize(640, 480)
         # mlayout = QHBoxLayout()
         wid = QWidget(self)
