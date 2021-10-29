@@ -55,7 +55,7 @@ class MainWindow(QMainWindow):
             
             # cleaning workspace and copy selected images
             cleaning_and_copying(*imgs_for_procesing)
-            shutil.copy2(tmplt_img, os.getcwd() + '/template.jpg')
+            shutil.copy2(tmplt_img, os.getcwd() + '/template.png')
             
             # function from "img_procesing.py" (description almost is there)
             calcs(gr, *imgs_for_procesing)
@@ -172,13 +172,13 @@ class AnotherWindow(QWidget):
         lbl2 = QLabel(self)
         lbl2.setPixmap(pixmap2)
 
-        pixmap = QPixmap(dir_c + '/cropped/' + self.image_for_showing[:-12] + '_cropped.jpg')
+        pixmap = QPixmap(dir_c + '/cropped/' + self.image_for_showing[:-12] + '_cropped.png')
         pixmap1 = pixmap.scaled(pixmap.width(), pixmap2.height())
         lbl1 = QLabel(self)
         lbl1.setPixmap(pixmap1)
         lbl1.setMaximumHeight(600)
 
-        pixmap_t = QPixmap(dir_c + '/thresholds/' + self.image_for_showing[:-12] + '_threshold.jpg')
+        pixmap_t = QPixmap(dir_c + '/thresholds/' + self.image_for_showing[:-12] + '_threshold.png')
         pixmap1_t = pixmap_t.scaled(pixmap_t.width(), pixmap2.height())
         lbl3 = QLabel(self)
         lbl3.setPixmap(pixmap1_t)

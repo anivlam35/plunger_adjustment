@@ -26,7 +26,7 @@ def cleaning_and_copying(*images):
 # function for cropping using cv2.matchTemplate
 def cropping():
     dir = os.getcwd()
-    template = cv2.imread('template.jpg', 0)
+    template = cv2.imread('template.png', 0)
     w, h = template.shape[::-1]
     os.chdir(dir + '/source')
     images = os.listdir()
@@ -38,7 +38,7 @@ def cropping():
         img = cv2.imread(imname, 0)
 
         method = eval('cv2.TM_CCOEFF_NORMED')
-	# methods we can also use (if current one won't work): 'cv2.TM_CCOEFF', 'cv2.TM_CCOEFF_NORMED', 
+	# methods we can also use (if current one dont work): 'cv2.TM_CCOEFF', 'cv2.TM_CCOEFF_NORMED', 
 	# 	'cv2.TM_CCORR', 'cv2.TM_CCORR_NORMED', 'cv2.TM_SQDIFF', 'cv2.TM_SQDIFF_NORMED']
 
         res = cv2.matchTemplate(img, template, method)
@@ -53,5 +53,5 @@ def cropping():
         cv2.rectangle(img, top_left, bottom_right, (0, 0, 0), 2)
 
         crp_img = img[top_left[1]:bottom_right[1], top_left[0]:bottom_right[0]]
-        cv2.imwrite(dir + '/cropped/' + str(k) + '_cropped.jpg', crp_img)
+        cv2.imwrite(dir + '/cropped/' + str(k) + '_cropped.png', crp_img)
         k += 1
