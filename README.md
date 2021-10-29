@@ -77,14 +77,15 @@ Now we are using [Raspberry Pi High Quality Camera 12.3MP](https://www.raspberry
 
 At the moment things are so if lens is focused on the nearest point of foils, the farthest is blured a lot, and vice versa. You can see that on the example below edges of slit are in focus, and the nearest point are not.
 
-<img src="./pics_for_report/bluring.png" height="130", width="800" alt="drawing" />
+
+<img src="./pics_for_report/bluring.png" height="130" width="800" alt="drawing" />
 
 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="./pics_for_report/blured.png" height="300", width="350" alt="drawing" />
+<img src="./pics_for_report/blured.png" height="300" width="350" alt="drawing" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="./pics_for_report/sharpped.png" height="300", width="350" alt="drawing" />
+<img src="./pics_for_report/sharpped.png" height="300" width="350" alt="drawing" />
 
 
 To use Raspberry Pi Camera we need built-in (into Raspberrian) package [raspistill](https://thepihut.com/blogs/raspberry-pi-roundup/raspberry-pi-camera-board-raspistill-command-list). Also I must notice that to use most efficiently, we need take vertical photos (in such a way that the slit takes almost all the height). In that case as an output we have pictures with horizontal slit (raspistill can't rotate images correctly), so that we should use [image_rotation.py](./image_procesing/image_rotation.py) to turn clockwise ninety degrees every image in selected set.
