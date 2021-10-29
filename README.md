@@ -1,13 +1,13 @@
-#*Report*  
-####*About internship in IJCLab (6th Sep 2021 - 6th Nov 2021)*
-##*Plunger adjustment*
-####*Kovalenko Ivan, 4th year, Taras Shevchenko National University of Kiev*
+# *Report*  
+#### *About internship in IJCLab (6th Sep 2021 - 6th Nov 2021)*
+## *Plunger adjustment*
+#### *Kovalenko Ivan, 4th year, Taras Shevchenko National University of Kiev*
 -----------------
-###Table of Contents
+### Table of Contents
 1. [Problem](#problem)
-2. [Image procesing](#Image procesing)
-    1. [Searching the slit](#Searching the slit)
-    2. [Converting image to b&w](#Converting image to b&w)
+2. [Image procesing](# Image procesing)
+    1. [Searching the slit](# Searching the slit)
+    2. [Converting image to b&w](# Converting image to b&w)
     3. [Algorithm for finding the coordinates of the edges of the slit](#Algorithm for finding)
     4. [Counting white pixels, plotting, fitting](#Counting white pixels)
     5. [Angle calculation](#Angle calculation)
@@ -17,14 +17,14 @@
     2. [RPi camera](#RPi camera)
 
 <br>
-###Problem<a name="problem"></a>
+### Problem<a name="problem"></a>
 The task was to find some way to set paralellism of Plunger foils. Approach was chosen with using optics. 
 
 The idea is to take photos of the slit between foils. Then one counts distance between foils (in pixels) and receives angle between foils (after calculations).  
 
-###Image procesing<a name="Image procesing"></a>
+### Image procesing<a name="Image procesing"></a>
 
-####Searching the slit<a name="Searching the slit"></a>
+#### Searching the slit<a name="Searching the slit"></a>
 To find the slit on the image we use [OpenCV Template Matching](https://docs.opencv.org/3.4.13/de/da9/tutorial_template_matching.html). 
 So we apply the template of picture of slit and some picture, where we want to find a slit. The program returns rectangle where, as it thinks, slit is. You can see an example below (template-image with slit-result).<br>
 &nbsp;<img src="./pics_for_report/templ.jpg" alt="drawing" height="400" width="40"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./pics_for_report/source.jpg" alt="drawing" height="400" width="500"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./pics_for_report/result.jpg" alt="drawing" height="400" width="40"/>
@@ -38,7 +38,7 @@ Here are examples of pictures with and without gradient.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./pics_for_report/cropped.png" alt="drawing" height="400" width="80"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./pics_for_report/threshold.png" alt="drawing" height="400" width="80"/>&nbsp;&nbsp;&nbsp;&nbsp;
 
-####Algorithm for finding the coordinates of the edges of the slit<a name="Algorithm for finding"></a>
+#### Algorithm for finding the coordinates of the edges of the slit<a name="Algorithm for finding"></a>
 To find the bottom edge:
 
 * count number of white  pixels at one-sixth of the height ( *l* );
@@ -46,18 +46,18 @@ To find the bottom edge:
 * if  ***n < l + sqrt(l)***, we say that ***n*** is the bottom edge.
 
 For the top edge we do the same but start from the top.
-####Counting white pixels, plotting, fitting<a name="Counting white pixels"></a>
+#### Counting white pixels, plotting, fitting<a name="Counting white pixels"></a>
 On this step we count white pixels at every height from the bottom edge to the top edge one by one, and plot this array in dependence on height. You can see an example below (nonlinear behavior of point graph is explained in [Camera paragraph](#Camera).
 
 &nbsp;&nbsp;<img src="./pics_for_report/plot_without_fitting.png" alt="drawing" />&nbsp;&nbsp;<img src="./pics_for_report/plot.png" alt="drawing" />&nbsp;&nbsp;&nbsp;&nbsp;
 
-####Angle calculation<a name="Angle calculation"></a>
+#### Angle calculation<a name="Angle calculation"></a>
 It is obvios that the number of white pixels is equivalent to the distance between foils (it isn't exactly the distance because of optical distortions that produce widening of the slit). That we can imagine that one of the foils is X-axis and another one is linear function (of course it is an approximation, but it distorts result not a lot because angle between is tiny). From fitting we get paramaters *b* and *k* (because linear function is defined like *y=k&times;x+b*). Therefore, the angle &beta; we can find from next ratio: *&beta;=arctg(k)*.
 Formula for error of mean: 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./pics_for_report/standart_error.png" height="130" alt="drawing" />
 
-###Running the program<a name="Running the program"></a>
+### Running the program<a name="Running the program"></a>
 >*For running this program you have to have installed packages with defined in [requirements.txt](requirements.txt) versions.*
 
 To run all the program, run [main.py](./image_procesing/main.py). Than using *Source path* and *Template path* buttons select the files (template must be made by yourself by cropping one of source images). Than you can set the point from 0 to 255 wich will separate black and white pixels (for example if this point is 50, pixels with brightness >50 will be convert to totally white, other will we convert to totally black). After pushing *calculate button* and calculating, you will receive angles of each image, mean angle, error of mean, relative error of mean and maximal possible distance. Maximal possible distance is maximal possible distance (in the plane of photo) between foils when we have electric contact.
@@ -65,11 +65,11 @@ To run all the program, run [main.py](./image_procesing/main.py). Than using *So
 
 >*All the \*.py files have description inside.*
 
-###Camera<a name="Camera"></a>
-####Phone camera<a name="Phone camera"></a>
+### Camera<a name="Camera"></a>
+#### Phone camera<a name="Phone camera"></a>
 First experiments was made using phone camera (Redmi Note 8T). It gave good sharpness and tiny optical distortions, but low resolution because of lossy compresion (it's a part of built-in procesing in most phones) and low quality of hardware.
 
-####RPi camera<a name="RPi camera"></a>
+#### RPi camera<a name="RPi camera"></a>
 
 Now we are using [Raspberry Pi High Quality Camera 12.3MP](https://www.raspberrypi.com/products/raspberry-pi-high-quality-camera/) with [telescope lens](https://thepihut.com/products/microscope-lens-for-raspberry-pi-high-quality-camera-module). The photomatrix is much better and can give much better resolution. Problem is that lens blurs a lot object that isn't in focus because of its parameters (small MOD (minimal object distance), open aperture and big magnification). Only one parameter that we can change is aperture (on our lens it's constant, but we should consider this information if we buy another lens). 
 
