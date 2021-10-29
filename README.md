@@ -5,7 +5,7 @@
 -----------------
 ### Table of Contents
 1. [Problem](#problem)
-2. [Image procesing](#Image)
+2. [Image processing](#Image)
     1. [Searching the slit](#Searching)
     2. [Converting image to black and white](#Converting)
     3. [Algorithm for finding the coordinates of the edges of the slit](#Algorithm)
@@ -62,7 +62,7 @@ Formula for error of mean:
 ### Running the program<a name="Running"></a>
 >*For running this program you need to have packages with defined in [requirements.txt](requirements.txt) versions installed.*
 
-To run all the program, run [main.py](./image_procesing/main.py). Than using *Source path* and *Template path* buttons select the files (template must be made by yourself by cropping one of source images). Than you can set the point from 0 to 255 wich will separate black and white pixels (for example if this point is 50, pixels with brightness >50 will be convert to totally white, others will be convert to totally black). After pushing *calculate button* and calculating, you will receive angles of each image, mean angle, error of mean, relative error of mean and maximal possible distance. Maximal possible distance is maximal possible distance (in the plane of photo) between foils when we have electric contact.
+To run all the program, run [main.py](./image_processing/main.py). Than using *Source path* and *Template path* buttons select the files (template must be made by yourself by cropping one of source images). Than you can set the point from 0 to 255 wich will separate black and white pixels (for example if this point is 50, pixels with brightness >50 will be convert to totally white, others will be convert to totally black). After pushing *calculate button* and calculating, you will receive angles of each image, mean angle, error of mean, relative error of mean and maximal possible distance. Maximal possible distance is maximal possible distance (in the plane of photo) between foils when we have electric contact.
 
 
 >*All the \*.py files have description inside.*
@@ -88,7 +88,7 @@ At the moment things are so that if lens is focused on the nearest point of foil
 <img src="./pics_for_report/sharpped.png" height="300" width="350" alt="drawing" />
 
 
-To use Raspberry Pi Camera we need a built-in (into Raspberrian) package [raspistill](https://thepihut.com/blogs/raspberry-pi-roundup/raspberry-pi-camera-board-raspistill-command-list). Also I am to notice that to use camera most efficiently, we need to take vertical photos (in such a way that the slit occupies almost all the height). In that case we have pictures with horizontal slit as an output (raspistill can't rotate images correctly), so we should use [image_rotation.py](./image_procesing/image_rotation.py) to turn clockwise ninety degrees every image in selected set.
+To use Raspberry Pi Camera we need a built-in (into Raspberrian) package [raspistill](https://thepihut.com/blogs/raspberry-pi-roundup/raspberry-pi-camera-board-raspistill-command-list). Also I am to notice that to use camera most efficiently, we need to take vertical photos (in such a way that the slit occupies almost all the height). In that case we have pictures with horizontal slit as an output (raspistill can't rotate images correctly), so we should use [image_rotation.py](./image_processing/image_rotation.py) to turn clockwise ninety degrees every image in selected set.
 
 
 
