@@ -1,4 +1,5 @@
-# *Report*  \# ###*About internship in IJCLab (6th Sep 2021 - 6th Nov 2021)* \#
+# *Report* 
+### *About internship in IJCLab (6th Sep 2021 - 6th Nov 2021)* 
 ## *Plunger adjustment*
 #### *Kovalenko Ivan, 4th year, Taras Shevchenko National University of Kiev*
 -----------------
@@ -12,7 +13,7 @@
     5. [Angle calculation](#Angle)
 3. [Running the program](#Running)
 2. [Camera](#Camera)
-    1. [Phone camera](#Phone
+    1. [Phone camera](#Phone)
     2. [RPi camera](#RPi)
 
 <br>
