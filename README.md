@@ -17,7 +17,8 @@
     2. [RPi camera](#RPi)
 
 <br>
-### Problem<a name="problem"></a>
+### Problem <a name="problem"></a>
+
 The task was to find some way to set paralellism of Plunger foils. Approach was chosen with using optics. 
 
 The idea is to take photos of the slit between foils. Then one counts distance between foils (in pixels) and receives angle between foils (after calculations).  
