@@ -115,7 +115,7 @@ def calcs(gr, *images):
     f.write('Average angle : ' + str(av_angle) + '\t')
     f.write('Error : ' + str(sigma) + '\t')
     f.write('Relative error : ' + str(round(sigma * 100 / av_angle, 1)) + '%\n')
-    f.write('Minimal possible distance : ' + str(round(min_dist, 1)) + ' mkm')
+    f.write('Maximal possible distance : ' + str(round(min_dist, 1)) + ' mkm')
     f.close()
 
     return 0

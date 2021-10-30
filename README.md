@@ -62,8 +62,13 @@ Formula for error of mean:
 ### Running the program<a name="Running"></a>
 >*For running this program you need to have packages with defined in [requirements.txt](requirements.txt) versions installed.*
 
-To run all the program, run [main.py](./image_procesing/main.py). Than using *Source path* and *Template path* buttons select the files (template must be made by yourself by cropping one of source images). Than you can set the point from 0 to 255 wich will separate black and white pixels (for example if this point is 50, pixels with brightness >50 will be convert to totally white, others will be convert to totally black). After pushing *calculate button* and calculating, you will receive angles of each image, mean angle, error of mean, relative error of mean and maximal possible distance. Maximal possible distance is maximal possible distance (in the plane of photo) between foils when we have electric contact.
+To run all the program, run [main.py](./image_procesing/main.py). Than using *Source path* and *Template path* buttons select the files (template must be made by yourself by cropping one of source images). Than you can set the point from 0 to 255 (70 by default) wich will separate black and white pixels (for example if this point is 50, pixels with brightness >50 will be convert to totally white, others will be convert to totally black). After pushing *calculate button* and calculating, you will receive angles of each image, mean angle, error of mean, relative error of mean and maximal possible distance. 
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./pics_for_report/ui.png" height="300" alt="drawing" />
+
+Maximal possible distance is maximal possible distance (in the plane of photo) between foils when we have electric contact. On the image below you can see the scheme: red poit is point of electrical contact, green lines are foils and blue one is *maximal possible distance*.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./pics_for_report/max_pos_dis.png" height="200" alt="drawing" />
 
 >*All the \*.py files have description inside.*
 
@@ -91,7 +96,15 @@ At the moment things are so that if lens is focused on the nearest point of foil
 To use Raspberry Pi Camera we need a built-in (into Raspberrian) package [raspistill](https://thepihut.com/blogs/raspberry-pi-roundup/raspberry-pi-camera-board-raspistill-command-list). Also I am to notice that to use camera most efficiently, we need to take vertical photos (in such a way that the slit occupies almost all the height). In that case we have pictures with horizontal slit as an output (raspistill can't rotate images correctly), so we should use [image_rotation.py](./image_procesing/image_rotation.py) to turn clockwise ninety degrees every image in selected set.
 
 
+### Conclusions<a name="Conclusions"></a>
+We have got the approach for measuring paralellism of foils of OUPS. With RPi Camera 1 pixel is equivalent to 4 mkm. 
 
+
+Unfinished issues:
+
+* estimation of optical distortion and broadening of the slit;
+* focusing on all the points of foils in one time;
+* taking photos from two mutually perpendicular directions (moving one camera or using two cameras).
 
 
 
