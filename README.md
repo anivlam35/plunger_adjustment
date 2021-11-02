@@ -115,7 +115,7 @@ Maximal possible distance is maximal possible distance (in the plane of photo) b
 >*All the \*.py files have description inside.*
 
 ### Conclusions<a name="Conclusions"></a>
-We have got the approach for measuring paralellism of foils of OUPS. With RPi Camera 1 pixel is equivalent to 4 mkm. 
+We have got the approach for measuring paralellism of foils of OUPS. And it undoubtedly can be used in the future.
 
 
 Unfinished issues:
